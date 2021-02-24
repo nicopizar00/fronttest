@@ -1,0 +1,15 @@
+#eclipse
+.settings/
+.project
+.classpath
+
+#project execution
+test-output/
+target/
+
+#web driver
+resource/driver/*
+
+#MacOS
+.DS_Store
+
