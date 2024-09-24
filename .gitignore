@@ -3,6 +3,9 @@
 .project
 .classpath
 
+#IntelliJ
+.idea
+
 #project execution
 test-output/
 target/
