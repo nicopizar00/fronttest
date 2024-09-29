@@ -9,26 +9,24 @@ import org.testng.annotations.BeforeTest;
 /**
  * Contains the base configuration to run the test;
  * The website url.
- * Other important configurations to inherit to other classes. 
- * 
- * @author Nicolas Pizarro
+ * Other important configurations to inherit to other classes.
  *
+ * @author Nicolas Pizarro
  */
 public class BaseConfig {
 
-	protected WebDriver webDriver;
-	String baseUrl = "https://www.demoblaze.com/";
-	
-	@BeforeTest
-	public void initialize() {
-		//System.setProperty("webdriver.chrome.driver","src/test/resources/driver/chromedriver");
-		WebDriverManager.chromedriver().setup();
-		webDriver = new ChromeDriver();
-	    webDriver.get(baseUrl);
-	}
+    protected WebDriver webDriver;
+    String baseUrl = "https://www.demoblaze.com/";
 
-	@AfterTest
-	public void terminate() {
-		 webDriver.close();
-	}
+    @BeforeTest
+    public void beforeTest() {
+        WebDriverManager.chromedriver().setup();
+        webDriver = new ChromeDriver();
+        webDriver.get(baseUrl);
+    }
+
+    @AfterTest
+    public void afterTest() {
+        webDriver.close();
+    }
 }

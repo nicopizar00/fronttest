@@ -14,7 +14,7 @@ public class HomePage extends BasePage {
 	public HomePage(WebDriver webDriver) {
 		this.webDriver = webDriver;
 		PageFactory.initElements(webDriver, this);
-		WaitUtils.waitElementVisible(webDriver, By.xpath("//*[@class='card h-100']"));
+		WaitUtils.waitElementVisible(webDriver, By.xpath("//*[@class='card h-100']")); //todo: update to check when page fully load
 	}
 
 	@FindBy(xpath = "//*[@class='card h-100']")
