@@ -3,7 +3,7 @@
 <suite name="Purchase Test Suite">
   <test thread-count="5" name="Purchase ok">
     <classes>
-      <class name="fronttest.test.Purchase"/>
+      <class name="fronttest.test.PurchaseTestCase"/>
     </classes>
   </test> <!-- Purchase ok -->
 </suite> <!-- Purchase Test Suite -->

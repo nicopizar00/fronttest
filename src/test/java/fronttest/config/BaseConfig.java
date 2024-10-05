@@ -15,18 +15,18 @@ import org.testng.annotations.BeforeTest;
  */
 public class BaseConfig {
 
-    protected WebDriver webDriver;
+    protected WebDriver driver;
     String baseUrl = "https://www.demoblaze.com/";
 
     @BeforeTest
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-        webDriver.get(baseUrl);
+        driver = new ChromeDriver();
+        driver.get(baseUrl);
     }
 
     @AfterTest
     public void afterTest() {
-        webDriver.close();
+        driver.close();
     }
 }

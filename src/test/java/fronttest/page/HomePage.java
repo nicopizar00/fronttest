@@ -1,32 +1,29 @@
 package fronttest.page;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import fronttest.util.WaitUtils;
+import java.util.Objects;
 
 public class HomePage extends BasePage {
-	public HomePage(WebDriver webDriver) {
-		this.webDriver = webDriver;
-		PageFactory.initElements(webDriver, this);
-		WaitUtils.waitElementVisible(webDriver, By.xpath("//*[@class='card h-100']")); //todo: update to check when page fully load
-	}
+    public HomePage(WebDriver driver) {
+        super(driver);
+        if (!Objects.equals(driver.getCurrentUrl(), "https://www.demoblaze.com/"))
+            throw new IllegalStateException("Not in Home Page");
+        firstProductLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='tbodyid']/div[1]/div/a")));
+    }
 
-	@FindBy(xpath = "//*[@class='card h-100']")
-	List<WebElement> productList;
+    WebElement firstProductLink;
 
-	/**
-	 * Click the first product to purchase it.
-	 * 
-	 * @return Product Page
-	 */
-	public ProductPage goToFirstProduct() {
-		productList.get(0).click();
-		return new ProductPage(webDriver);
-	}
+    /**
+     * Click the first product to purchase it.
+     *
+     * @return Product Page
+     */
+    public ProductPage clickFirstProduct() {
+        firstProductLink.click();
+        return new ProductPage(driver);
+    }
 }
