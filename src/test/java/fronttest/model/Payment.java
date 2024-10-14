@@ -1,19 +1,22 @@
 package fronttest.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Model for Payment used in the purchase process.
- * 
- * @author Nicolas Pizarro
  *
+ * @author Nicolas Pizarro
  */
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class Payment {
-	String name;
-	String country;
-	String city;
-	String creditCard;
-	String month;
-	String year;
+    String name;
+    String country;
+    String city;
+    String creditCard;
+    String month;
+    String year;
 }
